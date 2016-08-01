@@ -30,8 +30,8 @@ uint64_t fnv_hash(uint64_t hash, void *data, char type)
     unsigned char double_bytes[sizeof(double)];
   } byte_struct;
 
-	switch(type) {
-		case 1:
+  switch(type) {
+    case 1:
       byte_struct.source_short = *(short*)data;
       for (i=0; i<sizeof(short); i++)
       {
@@ -39,8 +39,8 @@ uint64_t fnv_hash(uint64_t hash, void *data, char type)
         hash = fnv_hash_byte(hash, byte);
       }
       return hash;
-		break;
-		case 2:
+    break;
+    case 2:
       byte_struct.source_int = *(int*)data;
       for (i=0; i<sizeof(int); i++)
       {
@@ -48,8 +48,8 @@ uint64_t fnv_hash(uint64_t hash, void *data, char type)
         hash = fnv_hash_byte(hash, byte);
       }
       return hash;
-		break;
-		case 3:
+    break;
+    case 3:
       byte_struct.source_long = *(long*)data;
       for (i=0; i<sizeof(long); i++)
       {
@@ -58,7 +58,7 @@ uint64_t fnv_hash(uint64_t hash, void *data, char type)
       }
       return hash;
     break;
-		case 4:
+    case 4:
       byte_struct.source_float = *(float*)data;
       for (i=0; i<sizeof(float); i++)
       {
@@ -66,8 +66,8 @@ uint64_t fnv_hash(uint64_t hash, void *data, char type)
         hash = fnv_hash_byte(hash, byte);
       }
       return hash;
-		break;
-		case 5:
+    break;
+    case 5:
       byte_struct.source_double = *(double*)data;
       for (i=0; i<sizeof(double); i++)
       {
@@ -75,8 +75,8 @@ uint64_t fnv_hash(uint64_t hash, void *data, char type)
         hash = fnv_hash_byte(hash, byte);
       }
       return hash;
-		break;
-		case 0:
+    break;
+    case 0:
       byte_struct.source_string = (unsigned char*)data;
 
       while(*byte_struct.source_string)
@@ -85,8 +85,8 @@ uint64_t fnv_hash(uint64_t hash, void *data, char type)
          *byte_struct.source_string++;
       }
       return hash;
-		break;
-	}
+    break;
+  }
 }
 
 uint64_t fnv_hash_byte(uint64_t hash, unsigned char *data)
